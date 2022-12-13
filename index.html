@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphine js</title>
+</head>
+<body>
+    
+
+    <div id="app">
+        <div class="info" x-data="quoteData" x-init="getRandomQuote()">
+          <blockquote x-text="content"></blockquote>
+          <p class="author" x-text="author">-</p>
+        </div>
+      </div>
+    </body>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.js"></script>
+
+
+
+    <script>
+
+
+        // const quote = {
+        //   content:"",
+        //   author:"",
+        //   getQuote(){
+        //     fetch("https://api.quotable.io/random")
+        //     .then(res=>res.json())
+        //     .then(data=>{
+        //       this.content = data.content
+        //       this.author = data.author
+        //     })
+        //   }
+        // }
+
+
+        const quoteData = {
+            content: "",
+            author: "",
+            getRandomQuote() {
+                fetch("https://api.quotable.io/random")
+                .then(res => res.json())
+                .then(data => {
+                    this.content = data.content
+                    this.author = data.author
+                })
+            }
+        }
+      </script>
+</html>
